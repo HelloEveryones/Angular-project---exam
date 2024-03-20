@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { MovieCreateComponent } from './movie-create/movie-create.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 
@@ -18,7 +19,8 @@ import { MovieEditComponent } from './movie-edit/movie-edit.component';
     RegisterComponent,
     MovieCreateComponent,
     MovieDetailsComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule
@@ -29,6 +31,7 @@ import { MovieEditComponent } from './movie-edit/movie-edit.component';
     RegisterComponent,
     MovieCreateComponent,
     MovieDetailsComponent,
-    MovieEditComponent]
+    MovieEditComponent,
+  CommentComponent]
 })
 export class FeatureModule { }
