@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MovieCreateComponent } from './movie-create/movie-create.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
 
 
 
@@ -12,11 +15,20 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     DashboardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieCreateComponent,
+    MovieDetailsComponent,
+    MovieEditComponent
   ],
   imports: [
     CommonModule
   ],
-  exports:[HomeComponent,DashboardComponent,LoginComponent,RegisterComponent]
+  exports:[HomeComponent,
+    DashboardComponent,
+    LoginComponent,
+    RegisterComponent,
+    MovieCreateComponent,
+    MovieDetailsComponent,
+    MovieEditComponent]
 })
 export class FeatureModule { }
