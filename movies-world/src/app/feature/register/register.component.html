@@ -1,1 +1,60 @@
-<p>register works!</p>
+<div class="register">
+    <form>
+
+        <div class="header">
+            <h3>Register</h3>
+           
+        </div>
+
+        <div class="fields">
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" required minlength="5">
+                <div class="error">
+                    <div>Username is required!</div>
+                    <div>Username must be more than 5 characters!</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Email" required pattern="{{emailValidatorPattern}}">
+                <div class="error">
+                    <div>Email is required!</div>
+                    <div>Invalid email!</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" placeholder="Age" required min="1" max="105">
+                <div class="error">
+                    <div>Age is required!</div>
+                    <div>Age must be between 1 and 105!</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" required minlength="5">
+                <div class="error">
+                    <div>Password is required!</div>
+                    <div>Password must be more than 5 characters!</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="repeatPassword">Repeat Password</label>
+                <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repeat Password" required>
+                <div class="error">
+                    <div>Repeat password is required!</div>
+                    <div>Passwords don't match!</div>
+                </div>
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Register">
+            </div>
+        </div>
+    </form>
+</div>

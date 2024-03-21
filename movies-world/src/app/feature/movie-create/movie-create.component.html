@@ -1,1 +1,58 @@
-<p>movie-create works!</p>
+<div class="movie-create">
+    <form>
+        <div class="header">
+            <h3>Create Movie</h3>
+            <app-error-message></app-error-message>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label for="title">Title</label>
+                <input type="text" name="title" required />
+                <div class="error">
+                    <div>Title is required!</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="director">Director</label>
+                <input type="text" name="director" required />
+                <div class="error">
+                    <div>Director is required!</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="year">Year</label>
+                <input type="number" name="year" required min="1888" />
+                <div class="error">
+                    <div>Year is required!</div>
+                    <div>First movie was made in 1888. Please enter a valid year!</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" required />
+                <div class="error">
+                    <div>Genre is required!</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" required pattern="^https?:\/\/[+\w+\W+]+" />
+                <div class="error">
+                    <div>Image URL is required!</div>
+                    <div>Image URL must start with http:// or https://!</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="plot">Plot</label>
+                <textarea name="plot" id="plot" cols="21" rows="10" required minlength="10"></textarea>
+                <div class="error">
+                    <div>Plot is required!</div>
+                    <div>Plot must be more than 10 characters!</div>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
