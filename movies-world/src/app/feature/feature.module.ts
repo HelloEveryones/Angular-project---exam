@@ -9,6 +9,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
 import { CommentComponent } from './comment/comment.component';
 import { RouterModule } from '@angular/router';
+import { ModalComponent } from './modal/modal.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 
 
@@ -21,7 +23,9 @@ import { RouterModule } from '@angular/router';
     MovieCreateComponent,
     MovieDetailsComponent,
     MovieEditComponent,
-    CommentComponent
+    CommentComponent,
+    ModalComponent,
+    MyProfileComponent
   ],
   imports: [
     CommonModule,RouterModule
@@ -33,6 +37,6 @@ import { RouterModule } from '@angular/router';
     MovieCreateComponent,
     MovieDetailsComponent,
     MovieEditComponent,
-  CommentComponent]
+  CommentComponent, ModalComponent, MyProfileComponent]
 })
 export class FeatureModule { }
