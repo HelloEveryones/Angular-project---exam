@@ -4,6 +4,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { GuardsComponent } from './guards/guards.component';
 
 
 
@@ -11,12 +12,13 @@ import { ErrorPageComponent } from './error-page/error-page.component';
   declarations: [
     NavigationComponent,
     FooterComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    GuardsComponent
   ],
   imports: [
     CommonModule,RouterModule
   ],
   exports:[ NavigationComponent,
-    FooterComponent,ErrorPageComponent]
+    FooterComponent,ErrorPageComponent,GuardsComponent]
 })
 export class CoreModule { }
