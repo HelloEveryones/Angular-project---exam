@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { FeatureModule } from './feature/feature.module';
 import {HttpClientModule} from  '@angular/common/http'
+import { CookieService } from 'ngx-cookie-service';
+import { appInterceptorProvider } from './app.interseptor';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,13 @@ import {HttpClientModule} from  '@angular/common/http'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,CoreModule,SharedModule,FeatureModule,HttpClientModule
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    FeatureModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService,appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
