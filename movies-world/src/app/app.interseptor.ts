@@ -28,7 +28,7 @@ import {
 
       return next.handle(req).pipe(
         catchError((err) => {
-          if (err.status === 401) {
+          if (err.status === 404) {
             this.router.navigate(['/404']);
           } else {
             this.errorService.setError(err);

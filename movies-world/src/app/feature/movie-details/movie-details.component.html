@@ -1,6 +1,6 @@
-
+<app-modal title="{{movie?.title}}" *ngIf="isLoggedIn && isOwner"/>
 <div class="movie-details">
-    <app-modal title="{{movie?.title}}"/>
+
 
     <h3>Details</h3>
     <div class="details">
@@ -13,13 +13,14 @@
             <h5>{{movie?.director}} <span>{{movie?.year}}</span></h5>
             <p>{{movie?.genre}}</p>
             <p>{{movie?.plot}}</p>
-            <div class="buttons">
+            <div class="buttons" *ngIf="isLoggedIn && isOwner"></div>
             </div>
         </div>
     </div>
 
     <div class="comments">
-        <app-comment></app-comment>
+        <app-comment *ngIf="isLoggedIn"/>
+
         <h4>Comments</h4>
         <h4>There are no added comments yet.</h4>
         <div class="comment-list">
@@ -90,4 +91,3 @@
             </ul>
         </div>
     </div>
-</div>
