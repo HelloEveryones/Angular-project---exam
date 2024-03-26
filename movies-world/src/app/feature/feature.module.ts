@@ -11,6 +11,8 @@ import { CommentComponent } from './comment/comment.component';
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -28,7 +30,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     MyProfileComponent
   ],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,RouterModule,SharedModule,FormsModule
   ],
   exports:[HomeComponent,
     DashboardComponent,

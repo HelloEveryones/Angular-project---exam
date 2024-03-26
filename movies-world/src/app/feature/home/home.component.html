@@ -8,25 +8,20 @@
             <h3>Recent movies</h3>
             <a routerLink="/dashboard">Browse more movies...</a>
         </div>
-        <!-- Placeholder for 'No movies' component -->
-        <div class="no-movies"></div>
-        
-        <!-- Placeholder for 'Loading spinner' component -->
-        <div class="loading-spinner"></div>
-        
-        <ul class="card-list">
-            <li class="card">
+        <app-no-movies *ngIf="noMovies" />
+        <app-loading-spinner *ngIf="isLoading" />
+        <ul class="card-list" *ngIf="!noMovies && !isLoading">
+            <li class="card" *ngFor="let movie of movies">
                 <div class="media">
-                    <img src="star wars image" alt="star wars image">
+                    <img src={{movie.imageUrl}} alt="star wars image">
                 </div>
                 <div class="card-info">
-                    <h3>Movie Title</h3>
-                    <h5>Director Name <span>Year</span></h5>
-                    <p>Genre</p>
-                    <a href="#">Details</a>
+                    <h3>{{movie.title}}</h3>
+                    <h5>{{movie.director}} <span>{{movie.year}}</span></h5>
+                    <p>{{movie.genre}}</p>
+                    <a [routerLink]="['/', 'movie-details', movie._id]">Details</a>
                 </div>
             </li>
-            <!-- Additional list items for each movie -->
         </ul>
     </div>
 </div>
