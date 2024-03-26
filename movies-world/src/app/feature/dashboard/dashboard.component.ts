@@ -8,16 +8,19 @@ import { Movie } from 'src/app/Types/Movie';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  movies: Movie[] = [];
+  movies: Movie[] | undefined = undefined;
+  noMovies = true;
+  isLoading = true;
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) { }
 
-  ngOnInit() {
-  
+  ngOnInit(): void {
     this.movieService.getMovies().subscribe((movies) => {
-      this.movies = movies; 
-      console.log(movies);
+      this.movies = movies
+      this.isLoading = false;
+      if (this.movies) {
+        this.noMovies = false;
+      }
     });
   }
 }
-

@@ -2,95 +2,18 @@
     <div class="info">
         <h3>All movies</h3>   
     </div>  
-    <ul class="card-list">
-        
-        <li class="card">
+    <app-no-movies *ngIf="noMovies"/>
+    <app-loading-spinner *ngIf="isLoading"/>
+    <ul class="card-list" *ngIf="!noMovies && !isLoading">
+        <li class="card" *ngFor="let movie of movies">
             <div class="media">
-                <img src="https://media.timeout.com/images/105863223/image.jpg" alt="star wars image">
+                <img src="{{movie.imageUrl}}" alt="star wars image">
             </div>
             <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://assets-prd.ignimgs.com/2023/04/07/image-1680722530728-1680863425926.png" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://media.timeout.com/images/105863223/image.jpg" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://assets-prd.ignimgs.com/2023/04/07/image-1680722530728-1680863425926.png" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://media.timeout.com/images/105863223/image.jpg" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://media.timeout.com/images/105863223/image.jpg" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://assets-prd.ignimgs.com/2023/04/07/image-1680722530728-1680863425926.png" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
-            </div>
-        </li>
-        <li class="card">
-            <div class="media">
-                <img src="https://media.timeout.com/images/105863223/image.jpg" alt="star wars image">
-            </div>
-            <div class="card-info">
-                <h3>Star Wars</h3>
-                <h5>Steven Speelberg <span>2005</span></h5>
-                <p>Fantasy</p>
-                <button>Details</button>
+                <h3>{{movie.title}}</h3>
+                <h5>{{movie.director}} <span>{{movie.year}}</span></h5>
+                <p>{{movie.genre}}</p>
+                <a [routerLink]="['/', 'movie-details', movie._id]">Details</a>
             </div>
         </li>
     </ul>
-</div>
