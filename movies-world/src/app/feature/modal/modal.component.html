@@ -1,1 +1,10 @@
-<p>modal works!</p>
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+            <button class="close" type="button" (click)="delete()">Delete</button>
+
+            <h2>Do you really want to DELETE {{title}}</h2>
+        </div>
+    </section>
+</ng-container>

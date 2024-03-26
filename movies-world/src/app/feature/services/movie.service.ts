@@ -16,32 +16,31 @@ export class MovieService {
   }
 
   getMovies() {
-    const { apiUrl } = environment;
-    return this.http.get<Movie[]>(`${apiUrl}/movies`);
+    return this.http.get<Movie[]>(`${environment.apiUrl}/movies`);
   }
 
   createMovie(title: string, director: string, year: number, genre: string, imageUrl: string, plot: string) {
-    const { apiUrl } = environment;
-    return this.http.post<Movie>(`${apiUrl}/movies`, { title, director, year, genre, imageUrl, plot });
+    return this.http.post<Movie>(`${environment.apiUrl}/movies`, { title, director, year, genre, imageUrl, plot });
   }
 
   editMovie(title: string, director: string, year: number, genre: string, imageUrl: string, plot: string, movieId:string) {
-    const { apiUrl } = environment;
-    return this.http.post<Movie>(`${apiUrl}/${movieId}/edit`, { title, director, year, genre, imageUrl, plot });
+    return this.http.post<Movie>(`${environment.apiUrl}/movies/${movieId}/edit`, { title, director, year, genre, imageUrl, plot });
+  }
+
+  deleteMovie(movieId:string) {
+    return this.http.post<Movie>(`${environment.apiUrl}/movies/${movieId}/delete`, {});
   }
 
 
   getMovieWithLimit(limit?: number) {
-    const { apiUrl } = environment;
-    const limitFilter = limit ? `?limit=${limit}` : '';
-
-    return this.http.get<Movie[]>(`${apiUrl}/posts${limitFilter}`);
-  }
+  const limitFilter = limit ? `?limit=${limit}` : '';
+  return this.http.get<Movie[]>(`${environment.apiUrl}/movies${limitFilter}`);
+}
+  
 
 
 
   createComment(text: string, userId: string, movieId: string) {
-    const { apiUrl } = environment;
-    return this.http.post<Movie>(`${apiUrl}/${movieId}/comments`, { text, userId, movieId });
+    return this.http.post<Movie>(`${environment.apiUrl}/${movieId}/comments`, { text, userId, movieId });
   }
 }
