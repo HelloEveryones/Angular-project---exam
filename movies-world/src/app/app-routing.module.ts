@@ -9,6 +9,8 @@ import { MovieCreateComponent } from './feature/movie-create/movie-create.compon
 import { MovieDetailsComponent } from './feature/movie-details/movie-details.component';
 import { MovieEditComponent } from './feature/movie-edit/movie-edit.component';
 import { MyProfileComponent } from './feature/my-profile/my-profile.component';
+import { canActivate, canManipulate, canNotActivate } from './core/guards/auth.guard';
+
 
 const routes: Routes = [
   {path: '', redirectTo:'/home', pathMatch: 'full'},
@@ -16,12 +18,12 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: '404', component: ErrorPageComponent},
   {path: '**', component: ErrorPageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'movie-create',component: MovieCreateComponent},
+  {path: 'login', component: LoginComponent, canActivate: [canNotActivate]},
+  {path: 'register', component: RegisterComponent, canActivate: [canNotActivate]},
+  {path: 'movie-create',component: MovieCreateComponent,canActivate:[canActivate]},
   {path: 'movie-details/:id', component: MovieDetailsComponent},
-  {path: 'movie-edit/:id', component: MovieEditComponent},
-  {path: 'my-profile', component: MyProfileComponent}
+  {path: 'movie-edit/:id', component: MovieEditComponent,canActivate:[canManipulate]},
+  {path: 'my-profile', component: MyProfileComponent, canActivate:[canActivate]}
 ];
 
 @NgModule({
