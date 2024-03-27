@@ -22,7 +22,7 @@
 
             <div class="field">
                 <label>Email</label>
-                <input type="text" name="email" ngModel #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                <input type="text" name="email" ngModel #email="ngModel" required pattern="{{emailValidatorPattern}}" />
                 <div class="error" *ngIf="email.touched">
                     <div *ngIf="email.errors?.['required']">
                         Email is required!
