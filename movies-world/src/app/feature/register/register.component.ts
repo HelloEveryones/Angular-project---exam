@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,30 +9,29 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   emailValidatorPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-constructor (private userService:UserService, private router:Router) {}
-submitHandler(form: NgForm): void {
+  password1: string = '';
+  password2: string = '';
+  constructor(private userService: UserService, private router: Router) { }
+  submitHandler(form: NgForm): void {
+    if (form.invalid) {
+      return;
+    }
+    const {
+      username,
+      email,
+      passwords,
+      age,
+    } = form.value;
 
-
-
-  if (form.invalid) {
-    return;
+    
+    this.userService
+      .register(username,
+        email,
+        passwords.password,
+        passwords.rePassword,
+        age,)
+      .subscribe(() => {
+        this.router.navigate(['/login']);
+      });
   }
-  const {
-    username,
-    email,
-    password,
-    rePassword,
-    age,
-  } = form.value;
-
-  this.userService
-  .register(username,
-    email,
-    password,
-    rePassword,
-    age,)
-  .subscribe(() => {
-    this.router.navigate(['/login']);
-  });
-}
 }

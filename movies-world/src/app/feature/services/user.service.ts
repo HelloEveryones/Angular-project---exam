@@ -50,7 +50,7 @@ export class UserService implements OnDestroy {
         age,
         imageUrl: DEFAULT_USER_IMG_URL
       })
-      .pipe(tap((user) => this.user$$.next(user)));
+  
   }
 
   logout() {

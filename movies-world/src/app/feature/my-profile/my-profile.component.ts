@@ -13,6 +13,8 @@ export class MyProfileComponent implements OnInit{
   user: User | undefined;
   movies: Movie[] | undefined
   isLoading: boolean = true;
+  hasMovies: boolean = false;
+
 
   constructor(private userService: UserService){}
 
@@ -20,6 +22,11 @@ export class MyProfileComponent implements OnInit{
     this.userService.getProfile().subscribe((user)=>{
       this.user = user;
       this.movies = user.movies;
+
+      if(this.movies.length !== 0){
+        this.hasMovies = true;
+      }
+      
       this.isLoading = false
     })
   }

@@ -32,9 +32,11 @@
         <div class="info">
             <h3>My movies</h3>
         </div>
-        <app-no-movies *ngIf="!movies"/>
+        <app-no-movies *ngIf="!hasMovies"/>
+
         <app-loading-spinner *ngIf="isLoading"/>
-        <ul class="card-list" *ngIf="movies">
+        <ul class="card-list" *ngIf="hasMovies">
+
             <li class="card" *ngFor="let movie of movies">
                 <div class="media">
                     <img src="{{movie.imageUrl}}" alt="{{movie.title}}">
