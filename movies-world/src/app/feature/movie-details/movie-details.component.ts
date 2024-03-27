@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/Types/Movie';
 import { MovieService } from '../services/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalService } from '../services/modal.service';
 import { UserService } from '../services/user.service';
 
@@ -11,20 +11,23 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
+  comments:any
   movie: Movie | undefined;
   movieId = this.route.snapshot.params["id"];
-
   isLoggedIn: boolean = false;
   isOwner: boolean = false;
+
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
     private modalService: ModalService,
-    private userService: UserService) {}
+    private userService: UserService,
+    private router:Router) {}
 
   ngOnInit(): void {
-    this.movieService.getMovie(`/${this.movieId}`).subscribe(movie=>{
+    this.movieService.getMovie(this.movieId).subscribe(movie=>{
       this.movie = movie;
+      this.comments=movie.comments;
 
       this.userService.user$.subscribe((user)=>{
         if(user){
@@ -36,10 +39,16 @@ export class MovieDetailsComponent implements OnInit {
       })
     })
 
-  }
+  } getNewComment(comments: any){
+    this.comments = comments;
+}
 
   deleteHandler():void{
 this.modalService.open()
   }
+  editHandler():void {
+    this.router.navigate([`/movie-edit/${this.movieId}`], { state: { isOwner: this.isOwner } });
+  }
+
 }
 

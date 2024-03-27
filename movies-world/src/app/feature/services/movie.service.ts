@@ -36,11 +36,5 @@ export class MovieService {
   const limitFilter = limit ? `?limit=${limit}` : '';
   return this.http.get<Movie[]>(`${environment.apiUrl}/movies${limitFilter}`);
 }
-  
 
-
-
-  createComment(text: string, userId: string, movieId: string) {
-    return this.http.post<Movie>(`${environment.apiUrl}/${movieId}/comments`, { text, userId, movieId });
-  }
 }
