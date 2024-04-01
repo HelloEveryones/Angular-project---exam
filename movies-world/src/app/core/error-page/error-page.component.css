@@ -1,14 +1,15 @@
-.error{
+.footer{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0,0.4);
-    height: 100%;
-}
-.error h2,.error h1{
+    align-items: center;
+    background-color: black;
+    padding: 1em;
     color: #F4B953;
 }
-.error h2 span{
-    font-size: 100px;
+.footer h4{
+    margin: 0;
+}
+.footer p{
+    margin: 0;
 }

@@ -1,41 +1,48 @@
-form{
-    position: relative;
-}
-.form{
+form {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     gap: 3em;
     padding-top: 2em;
+    position: relative;
 }
-form .form label{
+
+form label {
     font-size: 2em;
     padding: 1em 0;
 }
-form .form textarea{
+
+form textarea {
     resize: none;
     width: 30em;
     height: 10em;
     border: 5px solid #F4B953;
+    font-size: 1.5em;
+    padding: 0.5em;
 }
-form .form input{
+
+form input[type="text"],
+form input[type="submit"] {
     font-size: 1.5em;
     background-color: black;
     color: #F4B953;
     border: 1px solid #F4B953;
-    padding: 1em 2em;
+    padding: 0.5em 2em;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
 }
-form .form input:hover{
+
+form input[type="submit"]:hover {
     color: white;
     border-color: white;
-    cursor: pointer;
 }
-form .error{
-    margin: 0;
-    padding: 0;
+
+.error {
     position: absolute;
     bottom: -15%;
-    left: 38%;
+    left: 50%;
+    transform: translateX(-50%);
     color: red;
     font-size: 1.2em;
 }

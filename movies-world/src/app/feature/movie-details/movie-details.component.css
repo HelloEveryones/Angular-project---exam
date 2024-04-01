@@ -1,152 +1,146 @@
-.movie-details{
+
+.movie-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    background-color: rgba(0, 0, 0,0.4);
-    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    min-height: 100vh; 
+    padding: 5em 0; 
 }
-.movie-details h3{
+
+.movie-details h3 {
     color: #F4B953;
-    padding-top: 2em;
     font-size: 2.5em;
-    margin-bottom: 0;
+    margin-top: 0; 
+    margin-bottom: 1em; 
 }
-.details{
-    width: 100em;
-    display: flex;
-    gap: 5em;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: rgba(0, 0, 0,0.6);
-    border-radius: 1em;
-    overflow: hidden;
-    padding: 1em;
-}
-.details .media{
-    flex: 0 1 35em;
-    border-radius: 1em;
-    overflow: hidden;
-}
-.details .media img{
-    display: block;
-    width: 100%;
-    height: auto;
-}
-.details .info {
-    flex: 0 0 35em;
-    color: #F4B953;
+
+
+.details {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+    max-width: 90%; 
+    padding: 1em; 
+    background-color: rgba(236, 218, 218, 0.6);
+    border-radius: 1em;
+    overflow: hidden;
 }
-.details .info h4{
-    font-size: 3.5em;
-    margin-bottom: 0;
-}
-.details .info h5{
-    font-size: 2em;
-}
-.details .info p{
-    width: 35em;
-    font-size: 1.5em;
-}
-.details .info .buttons{
+
+
+.details .info {
+    width: 100%; 
     display: flex;
-    gap: 3em;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em; 
 }
-.details .info .buttons button{
+
+.details .info .buttons button,
+.details .info .buttons a {
+    display: inline-block;
+    padding: 0.5em 2em; 
     background-color: black;
     color: #F4B953;
-    padding: 1em 2em;
-    font-size: 1.5em;
-    border: 1px solid #F4B953;
-}
-.details .info .buttons a{
-    background-color: black;
-    color: #F4B953;
-    padding: 1em 2em;
     font-size: 1.5em;
     border: 1px solid #F4B953;
     text-decoration: none;
-    display: block;
+    text-transform: uppercase;
+    border-radius: 0.5em;
+    transition: all 0.3s ease; 
 }
-.details .info .buttons button:hover{
+
+
+.details .info .buttons button:hover,
+.details .info .buttons a:hover {
     color: white;
-    border-color: white;
+    background-color: #F4B953;
     cursor: pointer;
 }
-.details .info .buttons a:hover{
-    color: white;
-    border-color: white;
-    cursor: pointer;
-}
-.comments{
-    background-color: rgba(0, 0, 0,0.6);
+
+
+.comments {
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 1em;
     color: #F4B953;
-    width: 100em;
+    max-width: 90%; 
+    padding: 2em;
+    margin-top: 2em; 
+    overflow: auto; 
 }
-.comments h4{
+
+.comments h4 {
     text-align: center;
     padding: 1em;
-    margin-top: 1em;
+    margin: 0; 
     font-size: 2em;
     border-top: 1px solid #F4B953;
     border-bottom: 1px solid #F4B953;
+    margin-top: 1em; 
 }
-.comment-list{
-    padding: 2em;
-}
-.comment-list ul{
+
+
+.comment-list {
     display: flex;
     flex-direction: column;
-    list-style: none;
     gap: 1em;
+    list-style: none;
+    padding: 0;
+    margin: 0; 
 }
-.comment{
-    background-color: rgba(197, 184, 184, 0.6) ;
+
+.comment {
+    background-color: rgba(197, 184, 184, 0.6);
     color: white;
     border-radius: 0.5em;
     box-shadow: 0 0 1em 0 rgba(244, 185, 83, 0.6);
+    padding: 1em;
 }
-.comment .comment-author{
+
+.comment .comment-author {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 4px solid #F4B953;
-    height: 5em;
-    padding: 0 1em;
-    
+    padding-bottom: 1em; 
 }
-.comment .comment-author .media-author-info{
+.comment .comment-author .media-author-info {
     display: flex;
     gap: 1em;
+    align-items: center;
 }
-.comment .comment-author .media-author-info .media{
+.comment .comment-author .media-author-info .media {
     display: flex;
     justify-content: center;
     border-radius: 50%;
     width: 3em;
     overflow: hidden;
 }
-.comment .comment-author .media-author-info .media img{
+
+
+.comment .comment-author .media-author-info .media img {
     display: block;
     width: 100%;
     height: auto;
 }
-.comment .comment-author .media-author-info h5{
-    margin-bottom: 0;
+
+.comment .comment-author .media-author-info h5 {
+    margin: 0;
     font-size: 2em;
     align-self: flex-end;
 }
-.comment > p{
+
+.comment > p {
     font-size: 1.5em;
-    padding: 1em;
-    margin-bottom: 0;
+    margin: 0; 
+    padding: 1em 0; 
 }
-.comment .comment-author p{
-    margin-bottom: 0;
-    align-self: flex-end;
+
+.comment .comment-author p {
+    margin: 0;
     font-size: 1em;
+    align-self: flex-end;
 }

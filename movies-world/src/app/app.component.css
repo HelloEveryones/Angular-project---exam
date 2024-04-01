@@ -1,15 +1,32 @@
-.site{
+.site {
     display: flex;
     flex-wrap: wrap;
     background-image: url("../assets/cinema-strip-2713352_1280.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    overflow:auto;
+    overflow: auto;
 }
-.site .main{
+
+.site .main {
     width: 100%;
     min-height: 100vh;
 }
-.site header, .site footer{
+
+.site header,
+.site footer {
     flex-basis: 100%;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 1025px) {
+    
 }
