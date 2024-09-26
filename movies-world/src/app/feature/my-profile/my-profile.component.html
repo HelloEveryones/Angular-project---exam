@@ -1,16 +1,22 @@
 <div class="my-profile">
+    <!-- Секция за информация за потребителя -->
     <div class="profil-information">
         <div class="media">
+            <!-- Показване на профилната снимка на потребителя -->
             <img src="{{user?.imageUrl}}" alt="Profile picture">
+            <!-- Бутон за промяна на профилната снимка -->
             <button>
                 <label for="btn-checkbox">Change profile picture</label>
             </button>
+            <!-- Форма за промяна на профилната снимка -->
             <input id="btn-checkbox" type="checkbox" />
             <div class="collapse">
                 <div class="card card-body">
+                    <!-- Форма за избор на нова профилна снимка -->
                     <form #form="ngForm" (ngSubmit)="submitHandler(form)">
                         <input type="text" name="imageUrl" placeholder="Add image URL" ngModel #imageUrl="ngModel" required pattern="^https?:\/\/[+\w+\W+]+">
                         <input type="submit" value="Change picture">
+                        <!-- Съобщения за грешки при валидация на URL адреса на снимката -->
                         <div class="error" *ngIf="imageUrl.touched">
                             <div *ngIf="imageUrl.errors?.['required']">
                                 Image URL is required!
@@ -23,29 +29,39 @@
                 </div>
             </div>
         </div>
+        <!-- Информация за потребителя -->
         <div class="info">
-            <img src="{{user?.imageUrl}}" alt="Profile picture">
-            <app-error-message />
+            <p>Username: {{user?.username}}</p>
+            <p>Email: {{user?.email}}</p>
+            <p>Age: {{user?.age}}</p>
+            <app-error-message /> <!-- Компонент за показване на съобщения за грешки -->
         </div>
     </div>
+
+    <!-- Секция за списък с филмите, които потребителят е добавил -->
     <div class="my-posts">
         <div class="info">
             <h3>My movies</h3>
         </div>
+        <!-- Съобщение, ако потребителят няма добавени филми -->
         <app-no-movies *ngIf="!hasMovies"/>
-
+        <!-- Индикатор за зареждане, докато се извличат филмите -->
         <app-loading-spinner *ngIf="isLoading"/>
+        <!-- Списък с филмите -->
         <ul class="card-list" *ngIf="hasMovies">
-
+            <!-- Итерация през списъка с филмите -->
             <li class="card" *ngFor="let movie of movies">
                 <div class="media">
+                    <!-- Показване на снимката на филма -->
                     <img src="{{movie.imageUrl}}" alt="{{movie.title}}">
                 </div>
                 <div class="card-info">
+                    <!-- Информация за филма -->
                     <h3>{{movie.title}}</h3>
                     <h5>{{movie.director}} <span>{{movie.year}}</span></h5>
                     <p>{{movie.genre}}</p>
-                    <button [routerLink]="['/', 'movie-details', movie._id]">Details</button>
+                    <!-- Линк към подробности за филма -->
+                    <a [routerLink]="['/', 'movie-details', movie._id]">Details</a>
                 </div>
             </li>
         </ul>

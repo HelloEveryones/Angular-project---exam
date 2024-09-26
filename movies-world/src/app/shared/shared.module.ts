@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { NoMoviesComponent } from './no-movies/no-movies.component';
-import { RouterModule, mapToCanDeactivate } from '@angular/router';
 import { ErrorMessageComponent } from './error-message/error-message.component';
-import { MatchPasswordsDirective } from './directives/match-passwords.directive';
+import { matchPasswordsValidator } from './directives/match-password-validator';
+import { AppMatchPasswordsDirective } from './directives/match-passwords.directive';
+
 
 
 
@@ -13,11 +14,13 @@ import { MatchPasswordsDirective } from './directives/match-passwords.directive'
   declarations: [
     LoadingSpinnerComponent,
     NoMoviesComponent,
-    ErrorMessageComponent,MatchPasswordsDirective
+    ErrorMessageComponent,
+    AppMatchPasswordsDirective
+  
   ],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,
   ],
-  exports:[LoadingSpinnerComponent,NoMoviesComponent,ErrorMessageComponent,MatchPasswordsDirective]
+  exports:[LoadingSpinnerComponent,NoMoviesComponent,ErrorMessageComponent,AppMatchPasswordsDirective]
 })
 export class SharedModule { }

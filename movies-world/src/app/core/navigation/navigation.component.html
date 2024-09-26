@@ -1,16 +1,16 @@
 <div class="nav">
     <div class="logo">
-        <a href="">Movies <span>World</span></a>
+        <a href="">Movies <span>world 2024</span></a>
     </div>
     <nav>
-    <ul class="nav-btns">
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/dashboard">Movies</a></li>
-        <li><a routerLink="/movie-create" *ngIf="isLoggedIn">Add Movie</a></li>
-        <li><a routerLink="/login" *ngIf="!isLoggedIn">Login</a></li>
-        <li><a routerLink="/register" *ngIf="!isLoggedIn">Register</a></li>
-        <li><a routerLink="/home" (click)="logoutHandler()" *ngIf="isLoggedIn">Logout</a></li>
-        <li><a routerLink="/my-profile" *ngIf="isLoggedIn">My Profile</a></li>
-    </ul>
-</nav>
+        <ul class="nav-btns">
+            <li><a routerLink="/home">Home</a></li>
+            <li><a routerLink="/dashboard">Movies</a></li>
+            <li><a routerLink="/movie-create" *ngIf="isLoggedIn">Add Movie</a></li>
+            <li><a routerLink="/login" *ngIf="!isLoggedIn">Login</a></li>
+            <li><a routerLink="/register" *ngIf="!isLoggedIn">Register</a></li>
+            <li><a routerLink="/home" (click)="logoutHandler()" *ngIf="isLoggedIn">Logout</a></li>
+            <li><a routerLink="/my-profile" *ngIf="isLoggedIn">My Profile</a></li>
+        </ul>
+    </nav>
 </div>

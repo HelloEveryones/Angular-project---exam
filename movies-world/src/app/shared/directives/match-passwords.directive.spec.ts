@@ -1,8 +1,11 @@
-import { MatchPasswordsDirective } from './match-passwords.directive';
+import { mapToCanDeactivate } from "@angular/router";
+import { AppMatchPasswordsDirective } from "./match-passwords.directive";
+
+;
 
 describe('MatchPasswordsDirective', () => {
   it('should create an instance', () => {
-    const directive = new MatchPasswordsDirective();
+    const directive = new AppMatchPasswordsDirective();
     expect(directive).toBeTruthy();
   });
 });

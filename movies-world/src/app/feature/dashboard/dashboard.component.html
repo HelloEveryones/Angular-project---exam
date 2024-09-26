@@ -1,19 +1,31 @@
 <div class="recent-posts">
+    <!-- Информационен блок с заглавие -->
     <div class="info">
-        <h3>All movies</h3>   
-    </div>  
+        <h3>All movies</h3> <!-- Заглавие на блока -->
+    </div>
+
+    <!-- Компонент за показване на съобщение, ако няма филми -->
     <app-no-movies *ngIf="noMovies"/>
+
+    <!-- Компонент за зареждане, докато се изчакват данните за филмите -->
     <app-loading-spinner *ngIf="isLoading"/>
+
+    <!-- Списък с картички за всеки филм, ако има такива -->
     <ul class="card-list" *ngIf="!noMovies && !isLoading">
+        <!-- Показване на картичка за всеки филм с помощта на ngFor директива -->
         <li class="card" *ngFor="let movie of movies">
+            <!-- Мултимедиен елемент за показване на изображение на филма -->
             <div class="media">
-                <img src="{{movie.imageUrl}}" alt="star wars image">
+                <img src="{{movie.imageUrl}}" alt="star wars image"> <!-- Изображение на филма -->
             </div>
+            <!-- Информация за филма -->
             <div class="card-info">
-                <h3>{{movie.title}}</h3>
-                <h5>{{movie.director}} <span>{{movie.year}}</span></h5>
-                <p>{{movie.genre}}</p>
+                <h3>{{movie.title}}</h3> <!-- Заглавие на филма -->
+                <h5>{{movie.director}} <span>{{movie.year}}</span></h5> <!-- Режисьор и година на филма -->
+                <p>{{movie.genre}}</p> <!-- Жанр на филма -->
+                <!-- Линк към страницата с подробности за филма -->
                 <a [routerLink]="['/', 'movie-details', movie._id]">Details</a>
             </div>
         </li>
     </ul>
+</div>

@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./movie-create.component.css']
 })
 export class MovieCreateComponent {
-constructor(private movieService: MovieService, private router: Router) { }
 
-submitHandler(form: NgForm) {
-  if (form.invalid) {
-    return;
+  constructor(private movieService: MovieService, private router: Router) { }
+
+  submitHandler(form: NgForm) {
+    if (form.invalid) { // Проверка дали формата е валидна
+      return;
+    }
+    const { title, director, year, genre, imageUrl, plot } = form.value; // Извличане на стойностите от формата
+    this.movieService.createMovie(title, director, year, genre, imageUrl, plot).subscribe(() => { // Извикване на метода за създаване на филм чрез MovieService
+      this.router.navigate(["dashboard"]); // Пренасочване към страницата за таблото след успешно създаване на филма
+    });
   }
-  const { title, director, year, genre, imageUrl, plot } = form.value;
-
-  this.movieService.createMovie( title, director, year, genre, imageUrl, plot ).subscribe(()=>{
-    this.router.navigate(["dashboard"]);
-  })
-}
 }

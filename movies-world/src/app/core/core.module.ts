@@ -4,7 +4,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { GuardsComponent } from './guards/guards.component';
+
 
 
 
@@ -13,12 +13,12 @@ import { GuardsComponent } from './guards/guards.component';
     NavigationComponent,
     FooterComponent,
     ErrorPageComponent,
-    GuardsComponent
+    
   ],
   imports: [
     CommonModule,RouterModule
   ],
   exports:[ NavigationComponent,
-    FooterComponent,ErrorPageComponent,GuardsComponent]
+    FooterComponent,ErrorPageComponent]
 })
 export class CoreModule { }

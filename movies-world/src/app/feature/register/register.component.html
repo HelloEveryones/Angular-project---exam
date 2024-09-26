@@ -1,28 +1,38 @@
 <div class="register">
+    <!-- Форма за регистрация -->
     <form #form="ngForm" (ngSubmit)="submitHandler(form)">
 
+        <!-- Заглавие на формата -->
         <div class="header">
             <h3>Register</h3>
-            <app-error-message/>
+            <!-- Компонент за показване на грешки -->
+            <app-error-message />
         </div>
 
+        <!-- Полета за въвеждане на данни -->
         <div class="fields">
+            <!-- Поле за потребителско име -->
             <div class="field">
                 <label>Username</label>
+                <!-- Поле за въвеждане на потребителско име с валидация за задължителност и минимална дължина -->
                 <input type="text" name="username" ngModel #username="ngModel" required minlength="5" />
+                <!-- Показване на грешки за полето за потребителско име -->
                 <div class="error" *ngIf="username.touched">
                     <div *ngIf="username.errors?.['required']">
                         Username is required!
                     </div>
                     <div *ngIf="username.errors?.['minlength'] ">
-                        Username must be more then 5 characters!
+                        Username must be more than 5 characters!
                     </div>
                 </div>
             </div>
 
+            <!-- Поле за електронна поща -->
             <div class="field">
                 <label>Email</label>
+                <!-- Поле за въвеждане на електронна поща с валидация за задължителност и валиден формат -->
                 <input type="text" name="email" ngModel #email="ngModel" required pattern="{{emailValidatorPattern}}" />
+                <!-- Показване на грешки за полето за електронна поща -->
                 <div class="error" *ngIf="email.touched">
                     <div *ngIf="email.errors?.['required']">
                         Email is required!
@@ -33,9 +43,12 @@
                 </div>
             </div>
 
+            <!-- Поле за възраст -->
             <div class="field">
                 <label>Age</label>
+                <!-- Поле за въвеждане на възраст с валидация за задължителност и валиден диапазон -->
                 <input type="number" name="age" ngModel #age="ngModel" required min="1" max="105"/>
+                <!-- Показване на грешки за полето за възраст -->
                 <div class="error" *ngIf="age.touched">
                     <div *ngIf="age.errors?.['required']">
                         Age is required!
@@ -46,36 +59,45 @@
                 </div>
             </div>
 
-            <div class="field">
-                <label>Password</label>
-                <input type="password" name="password" ngModel #password="ngModel" required minlength="5" />
-                <div class="error" *ngIf="password.touched">
-                    <div *ngIf="password.errors?.['required']">
-                        Password is required!
-                    </div>
-                    <div *ngIf="password.errors?.['minlength'] ">
-                        Password must be more then 5 characters!
-                    </div>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Repeat Password</label>
-                <input type="password" name="repeatPassword" ngModel #repeatPassword="ngModel" required />
-                <div class="error" *ngIf="repeatPassword.touched">
-                    <div *ngIf="repeatPassword.errors?.['required']">
-                        Repeat password is required!
-                    </div>
-                    <div *ngIf="password.value !== repeatPassword.value">
-                        Passwords don't match!
+            <!-- Група полета за парола и повторение на паролата -->
+            <ng-container ngModelGroup="passwords" #passwords="ngModelGroup" appAppMatchPasswords   >
+                <!-- Поле за парола -->
+                <div class="field">
+                    <label>Password</label>
+                    <!-- Поле за въвеждане на парола с валидация за задължителност и минимална дължина -->
+                    <input type="password" name="password" ngModel #password="ngModel"  required minlength="5" />
+                    <!-- Показване на грешки за полето за парола -->
+                    <div class="error" *ngIf="password.touched">
+                        <div *ngIf="password.errors?.['required']">
+                            Password is required!
+                        </div>
+                        <div *ngIf="password.errors?.['minlength'] ">
+                            Password must be more than 5 characters!
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <!-- Поле за повторение на паролата -->
+                <div class="field">
+                    <label>Repeat Password</label>
+                    <!-- Поле за въвеждане на повторната парола с валидация за задължителност -->
+                    <input type="password" name="repeatPassword" ngModel #repeatPassword="ngModel"  required    />
+                    <!-- Показване на грешки за полето за повторение на паролата -->
+                    <div class="error" *ngIf="repeatPassword.touched">
+                        <div *ngIf="repeatPassword.errors?.['required']">
+                            Repeat password is required!
+                        </div>
+                        <div *ngIf="passwords.errors?.['passwordCheck'] && (repeatPassword.dirty || repeatPassword.touched)">
+                            Passwords don't match!
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!-- Бутон за изпращане на формата за регистрация -->
             <div class="button">
                 <input type="submit" value="Register" />
             </div>
         </div>
     </form>
 </div>
- 21 changes: 21 additions & 0 deletions21  

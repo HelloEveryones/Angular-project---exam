@@ -1,13 +1,12 @@
-<ng-container *ngIf="display$ | async as display">
-    <section [class.open]="display === 'open'" (click)="close()">
-        <div (click)="$event.stopPropagation()">
+<ng-container *ngIf="display$ | async as display"> <!-- Използване на ng-container за условно показване на HTML шаблона -->
+    <section [class.open]="display === 'open'" (click)="close()"> <!-- Добавяне на клас "open" ако променливата display е равна на 'open', също така затваря прозореца при кликване извън него -->
+        <div (click)="$event.stopPropagation()"> <!-- Предотвратяване на пропагирането на събитието към родителските елементи -->
             <h1>Attention!</h1>
-            <h2>Do you really want to DELETE <span>{{title}}</span>?</h2>
+            <h2>Do you really want to DELETE <span>{{title}}</span>?</h2> <!-- Показва заглавието на модалния прозорец -->
             <div class="buttons">
-                <button class="close" type="button" (click)="close()">Cancel</button>
-                <button class="close" type="button" (click)="delete()">Delete</button>
+                <button class="close" type="button" (click)="close()">Cancel</button> <!-- Бутон за отказване на операцията -->
+                <button class="close" type="button" (click)="delete()">Delete</button> <!-- Бутон за изтриване на записа -->
             </div>
         </div>
     </section>
 </ng-container>
-        

@@ -9,11 +9,12 @@ import { FeatureModule } from './feature/feature.module';
 import {HttpClientModule} from  '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
 import { appInterceptorProvider } from './app.interseptor';
-import { canActivate } from './core/guards/auth.guard';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
