@@ -10,13 +10,13 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  // Метод за извличане на коментарите за даден филм по неговия идентификатор
+  
   getComments(movieId: string) {
-    return this.http.get<Comment>(`${environment.apiUrl}/movies/${movieId}/comments`); // Използваме HttpClient за изпращане на GET заявка към сървъра
+    return this.http.get<Comment>(`${environment.apiUrl}/movies/${movieId}/comments`); 
   }
 
-  // Метод за създаване на нов коментар за даден филм
+  
   createComment(text: string, movieId: string) {
-    return this.http.post<Comment>(`${environment.apiUrl}/movies/${movieId}/comments`, { text }); // Използваме HttpClient за изпращане на POST заявка към сървъра с текста на коментара
+    return this.http.post<Comment>(`${environment.apiUrl}/movies/${movieId}/comments`, { text }); 
   }
 }

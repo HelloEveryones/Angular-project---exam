@@ -3,20 +3,20 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from "@ang
 import { matchPasswordsValidator } from './match-password-validator';
 
 
-// Директива за сравнение на пароли.
+
 @Directive({
-  selector: '[appAppMatchPasswords]', // Селектор за директивата
-  providers: [{ provide: NG_VALIDATORS, useExisting: AppMatchPasswordsDirective, multi: true }] // Предоставяне на валидатора
+  selector: '[appAppMatchPasswords]', 
+  providers: [{ provide: NG_VALIDATORS, useExisting: AppMatchPasswordsDirective, multi: true }] 
 })
 export class AppMatchPasswordsDirective implements Validator {
-  private valFn; // Приватно поле за валидатора
+  private valFn; 
 
   constructor() {
-    this.valFn =matchPasswordsValidator(); // Инициализация на валидатора
+    this.valFn =matchPasswordsValidator(); 
   }
 
-  // Метод за валидиране на контрол
+  
   validate(c: AbstractControl): ValidationErrors | null {
-    return this.valFn(c); // Връща резултата от валидацията
+    return this.valFn(c); 
   }
 }

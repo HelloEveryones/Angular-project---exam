@@ -11,31 +11,30 @@ import { mergeMap } from 'rxjs';
 })
 export class CommentComponent {
 
-  @Output() commentIsCreated = new EventEmitter<any>(); // Деклариране на изходен EventEmitter, който ще извести родителския компонент за създаден коментар
-
-  movieId = this.route.snapshot.params["id"]; // Вземане на идентификатора на филма от маршрута
+  @Output() commentIsCreated = new EventEmitter<any>(); 
+  movieId = this.route.snapshot.params["id"]; 
 
   constructor(
-    private route: ActivatedRoute, // Сервиз за работа с текущия маршрут
-    private commentService: CommentService // Сервиз за работа с коментарите
+    private route: ActivatedRoute, 
+    private commentService: CommentService 
   ) {}
 
   submitHandler(form: NgForm) {
     if (form.invalid) {
-      return; // Ако формата е невалидна, прекратяваме изпълнението на метода
+      return; 
     }
 
-    const { comment } = form.value; // Извличане на текста на коментара от стойността на формата
+    const { comment } = form.value; 
 
-    // Създаване на коментар чрез коментарния сервиз и известяване на родителския компонент за създадения коментар
+    
     this.commentService.createComment(comment, this.movieId).pipe(
       mergeMap(() => {
-        return this.commentService.getComments(this.movieId); // След като създадем коментара, вземаме отново всички коментари за филма
+        return this.commentService.getComments(this.movieId);
       })
     ).subscribe((comments) => {
-      this.commentIsCreated.emit(comments); // Известяване на родителския компонент за създадените коментари
+      this.commentIsCreated.emit(comments); 
     });
 
-    form.reset(); // Нулиране на формата след успешното създаване на коментар
+    form.reset(); 
   }
 }

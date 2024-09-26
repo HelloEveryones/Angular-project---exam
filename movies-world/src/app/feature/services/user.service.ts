@@ -9,27 +9,26 @@ import { DEFAULT_USER_IMG_URL } from '../constans/defaultImageUrl';
   providedIn: 'root',
 })
 export class UserService implements OnDestroy {
-  private user$$ = new BehaviorSubject<User | undefined>(undefined); // Създава нов BehaviorSubject за потребителя с начална стойност 'undefined'.
-  public user$ = this.user$$.asObservable(); // Публичен Observable за ползване от други компоненти, който позволява наблюдение на потребителските данни.
+  private user$$ = new BehaviorSubject<User | undefined>(undefined); 
+  public user$ = this.user$$.asObservable(); 
+  user: User | undefined; 
 
-  user: User | undefined; // Променлива за съхранение на текущия потребител.
-
-  get isLoggedIn(): boolean { // Метод, който връща булева стойност, която показва дали има аутентициран потребител или не.
+  get isLoggedIn(): boolean {
     return !!this.user;
   }
 
-  subscription: Subscription; // Променлива за съхранение на абонамента за промените в потребителските данни.
+  subscription: Subscription; 
 
   constructor(private http: HttpClient) {
-    this.subscription = this.user$.subscribe((user) => { // Абониране за промените в потребителските данни и актуализация на локалната променлива 'user'.
+    this.subscription = this.user$.subscribe((user) => { 
       this.user = user;
     });
   }
 
-  login(username: string, password: string) { // Метод за влизане на потребител в системата.
+  login(username: string, password: string) { 
     return this.http
       .post<User>(`${environment.apiUrl}/login`, { username, password })
-      .pipe(tap((user) => this.user$$.next(user))); // Извършване на HTTP заявка за влизане и актуализация на потребителските данни.
+      .pipe(tap((user) => this.user$$.next(user))); 
   }
 
   register(
@@ -56,19 +55,19 @@ export class UserService implements OnDestroy {
       .pipe(tap(() => this.user$$.next(undefined))); // Извършване на HTTP заявка за излизане и анулиране на потребителските данни.
   }
 
-  getProfile() { // Метод за вземане на профила на текущия потребител.
+  getProfile() {
     return this.http
       .get<User>(`${environment.apiUrl}/users/profile`)
-      .pipe(tap((user) => this.user$$.next(user))); // Извършване на HTTP заявка за вземане на профила и актуализация на потребителските данни.
+      .pipe(tap((user) => this.user$$.next(user))); 
   }
 
-  updateProfile(imageUrl: string) { // Метод за актуализация на профила на потребителя с нов URL на изображение.
+  updateProfile(imageUrl: string) { 
     return this.http
       .put<User>(`${environment.apiUrl}/users/profile`, { imageUrl })
-      .pipe(tap((user) => this.user$$.next(user))); // Извършване на HTTP заявка за актуализация на профила и актуализация на потребителските данни.
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  ngOnDestroy(): void { // Метод, който се извиква при унищожаване на услугата и освобождаване на ресурси.
-    this.subscription.unsubscribe(); // Освобождаване на абонамента за промените в потребителските данни.
+  ngOnDestroy(): void { 
+    this.subscription.unsubscribe(); 
   }
 }

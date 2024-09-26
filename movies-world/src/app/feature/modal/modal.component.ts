@@ -15,24 +15,24 @@ export class ModalComponent {
   movieId = this.route.snapshot.params["id"]; // Идентификатор на филма
 
   constructor(
-    private modalService: ModalService, // Сервис за управление на модални прозорци
-    private movieService: MovieService, // Сервис за управление на филми
-    private router: Router, // Обект за навигация
-    private route: ActivatedRoute // Обект за получаване на текущия маршрут
+    private modalService: ModalService, 
+    private movieService: MovieService, 
+    private router: Router, 
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.display$ = this.modalService.watch(); // Подписване на поток от сервиса за модални прозорци
+    this.display$ = this.modalService.watch(); 
   }
 
   close() {
-    this.modalService.close(); // Метод за затваряне на модалния прозорец
+    this.modalService.close(); 
   }
 
   delete() {
-    this.movieService.deleteMovie(this.movieId).subscribe(() => { // Изтриване на филма чрез съответния метод от сервиса за управление на филми
-      this.modalService.close(); // Затваряне на модалния прозорец
-      this.router.navigate(["dashboard"]); // Навигация към дъшборда след изтриване на филма
+    this.movieService.deleteMovie(this.movieId).subscribe(() => { 
+      this.modalService.close(); 
+      this.router.navigate(["dashboard"]);
     })
   }
 }
