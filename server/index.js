@@ -15,14 +15,11 @@ dbConnector()
     require('./config/express')(app);
 
     app.use(cors({
-      origin: config.origin,
+      origin: 'https://moviesworldangular.netlify.app', // Тук задайте вашия домейн
       credentials: true
     }));
-    app.use((req, res, next) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      next();
-    });
+    
+   
     
 
     app.use('/api', apiRouter);
