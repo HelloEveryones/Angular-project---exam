@@ -19,11 +19,7 @@ dbConnector()
       credentials: true
     }));
     
-    app.use(cors({
-      origin: '*',
-      credentials: true
-  }));
-  
+   
     
 
     app.use('/api', apiRouter);

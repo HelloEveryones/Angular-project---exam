@@ -9,7 +9,8 @@ module.exports = (app) => {
 
     app.use(cookieParser(cookieSecret));
 
-    app.use(express.static(path.resolve(__basedir, 'static')));
+    app.use(express.static(path.join(__dirname, 'dist/movies-world')));
+
 
     // app.use(errorHandler(err, req, res, next));
 };
