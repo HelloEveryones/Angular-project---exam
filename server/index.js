@@ -15,9 +15,10 @@ dbConnector()
     require('./config/express')(app);
 
     app.use(cors({
-      origin: 'https://moviesworldangular.netlify.app', // Тук задайте вашия домейн
+      origin: ['https://moviesworldangular.netlify.app', 'http://localhost:4200'], // позволи и за локално тестване
       credentials: true
     }));
+    
     
    
     
