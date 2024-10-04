@@ -1,6 +1,6 @@
 require('dotenv').config();
 
- const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 
 const config = {
     development: {
@@ -10,8 +10,8 @@ const config = {
     },
     production: {
         port: process.env.PORT || 3000,
-        dbURL: process.env.DB_URL_CREDENTIALS,
-        origin: []
+        dbURL: process.env.DB_URL_CREDENTIALS || 'mongodb+srv://ivadkostadinova:PMDySbyUK5zZDh31@cluster0.xo2pu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+        origin: ['https://moviesworldangular.netlify.app'] // Add your Netlify frontend URL here
     }
 };
 
