@@ -1,66 +1,55 @@
 <div class="my-profile">
-    <!-- Секция за информация за потребителя -->
     <div class="profil-information">
         <div class="media">
-            <!-- Показване на профилната снимка на потребителя -->
-            <img src="{{user?.imageUrl}}" alt="Profile picture">
-            <!-- Бутон за промяна на профилната снимка -->
-            <button>
-                <label for="btn-checkbox">Change profile picture</label>
-            </button>
-            <!-- Форма за промяна на профилната снимка -->
-            <input id="btn-checkbox" type="checkbox" />
+            <!-- Профилна снимка -->
+            <img [src]="user?.imageUrl || 'assets/default-profile.png'" alt="Profile picture" class="profile-img">
+
+            <!-- Бутон за промяна на снимката -->
+            <label for="btn-checkbox" class="change-picture-btn">Change profile picture</label>
+
+            <!-- Чекбокс за показване на формата -->
+            <input id="btn-checkbox" type="checkbox" class="hidden-checkbox">
+            
+            <!-- Форма за смяна на профилна снимка -->
             <div class="collapse">
                 <div class="card card-body">
-                    <!-- Форма за избор на нова профилна снимка -->
                     <form #form="ngForm" (ngSubmit)="submitHandler(form)">
-                        <input type="text" name="imageUrl" placeholder="Add image URL" ngModel #imageUrl="ngModel" required pattern="^https?:\/\/[+\w+\W+]+">
+                        <input type="text" name="imageUrl" placeholder="Add image URL" ngModel #imageUrl="ngModel" required>
                         <input type="submit" value="Change picture">
-                        <!-- Съобщения за грешки при валидация на URL адреса на снимката -->
-                        <div class="error" *ngIf="imageUrl.touched">
-                            <div *ngIf="imageUrl.errors?.['required']">
-                                Image URL is required!
-                            </div>
-                            <div *ngIf="imageUrl.errors?.['pattern']">
-                                Image URL must start with http:// or https:// !
-                            </div>
+                        <!-- Грешки при валидация -->
+                        <div class="error" *ngIf="imageUrl.touched && imageUrl.invalid">
+                            <div *ngIf="imageUrl.errors?.['required']">Image URL is required!</div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
         <!-- Информация за потребителя -->
         <div class="info">
-            <p>Username: {{user?.username}}</p>
-            <p>Email: {{user?.email}}</p>
-            <p>Age: {{user?.age}}</p>
-            <app-error-message /> <!-- Компонент за показване на съобщения за грешки -->
+            <p><strong>Username:</strong> {{user?.username}}</p>
+            <p><strong>Email:</strong> {{user?.email}}</p>
+            <p><strong>Age:</strong> {{user?.age}}</p>
+            <app-error-message></app-error-message>
         </div>
     </div>
 
-    <!-- Секция за списък с филмите, които потребителят е добавил -->
+    <!-- Филми на потребителя -->
     <div class="my-posts">
         <div class="info">
             <h3>My movies</h3>
         </div>
-        <!-- Съобщение, ако потребителят няма добавени филми -->
-        <app-no-movies *ngIf="!hasMovies"/>
-        <!-- Индикатор за зареждане, докато се извличат филмите -->
-        <app-loading-spinner *ngIf="isLoading"/>
-        <!-- Списък с филмите -->
+        <app-no-movies *ngIf="!hasMovies"></app-no-movies>
+        <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
         <ul class="card-list" *ngIf="hasMovies">
-            <!-- Итерация през списъка с филмите -->
             <li class="card" *ngFor="let movie of movies">
                 <div class="media">
-                    <!-- Показване на снимката на филма -->
-                    <img src="{{movie.imageUrl}}" alt="{{movie.title}}">
+                    <img [src]="movie.imageUrl" alt="{{movie.title}}" class="movie-thumbnail">
                 </div>
                 <div class="card-info">
-                    <!-- Информация за филма -->
                     <h3>{{movie.title}}</h3>
                     <h5>{{movie.director}} <span>{{movie.year}}</span></h5>
                     <p>{{movie.genre}}</p>
-                    <!-- Линк към подробности за филма -->
                     <a [routerLink]="['/', 'movie-details', movie._id]">Details</a>
                 </div>
             </li>

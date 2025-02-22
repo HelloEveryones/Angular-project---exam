@@ -1,162 +1,143 @@
+/* Основна секция на профила */
 .my-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: rgba(0, 0, 0, 0.4);
-    height: 100%;
-    padding: 2em; 
+    padding: 2em;
+    width: 100%;
 }
 
+/* Секция с информация за профила */
 .profil-information {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3em;
-    padding: 3em;
+    gap: 1.5em;
+    padding: 2em;
     color: #F4B953;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 1em; 
-}
-
-.profil-information .media {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5em;
-    width: 15em;
-    overflow: hidden;
-}
-
-.profil-information .media img {
+    border-radius: 1em;
     width: 100%;
-    height: auto;
-    border-radius: 0.5em;
+    max-width: 400px;
+    text-align: center;
 }
 
-label {
+/* Профилна снимка */
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #F4B953;
+}
+
+/* Бутон за промяна на снимката */
+.change-picture-btn {
     cursor: pointer;
     background-color: black;
     color: #F4B953;
-    border-radius: 0.5em;
+    border-radius: 5px;
+    padding: 0.5em 1em;
     border: 1px solid #F4B953;
-    padding: 0.3em 0.5em;
+    transition: 0.3s;
 }
 
+.change-picture-btn:hover {
+    color: white;
+    border-color: white;
+}
+
+/* Форма за промяна на снимката */
 .card.card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
-    background-color: none;
-    padding: 0.5em;
-    position: relative;
-    border: 1px solid #F4B953; 
-    border-radius: 0.5em; 
-}
-
-.card.card-body input[type="submit"] {
-    background-color: black;
-    color: #F4B953;
-    border-radius: 0.5em;
-    border: 1px solid #F4B953;
-    padding: 0.3em 0.5em;
-    cursor: pointer;
-}
-
-.card.card-body input {
-    min-height: 2em;
-    width: 100%; 
-}
-
-.recent-posts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-    padding: 2em; 
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 1em; 
-}
-
-.recent-posts .info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    color: #F4B953;
-    padding: 1em; 
-    border-bottom: 1px solid #F4B953; 
-}
-
-.recent-posts .info h3 {
-    margin: 0;
-}
-
-.recent-posts .info a {
-    text-decoration: none;
-    color: #F4B953;
-    font-size: 1.2em;
-}
-
-.card-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    gap: 2em;
-    padding: 2em; 
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25em;
-    background-color: #F9C356;
-    border-radius: 0.5em; 
-    overflow: hidden; 
-    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1); 
-}
-
-.card .media img {
-    max-width: 100%;
-    height: auto;
-}
-
-.card .card-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1em;
+    border: 1px solid #F4B953;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-top: 1em;
 }
 
+/* 📌 Филмови карти - стилизирани за по-добър изглед */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 1.5em;
+    width: 100%;
+}
+
+/* 📌 Всяка карта е с фиксиран размер */
+.card {
+    width: 250px;
+    background-color: #F9C356;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* 📌 Изображението на филма */
+.card .media {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.movie-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 📌 Информация за филма */
+.card-info {
+    padding: 1em;
+    text-align: center;
+}
+
+/* 📌 Заглавие на филма */
+.card-info h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    color: black;
+}
+
+/* 📌 Допълнителна информация */
+.card-info h5 {
+    font-size: 1em;
+    color: #333;
+    margin: 0.2em 0;
+}
+
+.card-info p {
+    font-size: 0.9em;
+    color: #222;
+}
+
+/* 📌 Бутон "Details" */
 .card .card-info a {
     display: block;
+    text-align: center;
     text-decoration: none;
-    width: 100%;
-    padding: 0.5em;
     background-color: black;
     color: white;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 0.5em;
-    letter-spacing: 0.2em;
-    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 0.9em;
+    margin-top: 0.5em;
 }
 
 .card .card-info a:hover {
     color: black;
     background-color: antiquewhite;
 }
-
-.error {
-    position: absolute;
-    top: 2em;
-    left: 1em;
-    color: red;
-    width: 15em;
-    padding: 0.5em; 
-    background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 0.5em; 
-}
-
