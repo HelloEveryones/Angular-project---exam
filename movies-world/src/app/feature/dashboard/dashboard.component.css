@@ -1,3 +1,4 @@
+/* ✅ Контейнер за всички филми */
 .recent-posts {
     display: flex;
     flex-direction: column;
@@ -5,8 +6,10 @@
     gap: 2.5em;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 3em 0;
+    width: 100%;
 }
 
+/* ✅ Заглавие */
 .recent-posts .info {
     width: 100%;
     text-align: center;
@@ -21,23 +24,26 @@
     letter-spacing: 1px;
 }
 
-/* Контейнер за картите */
+/* ✅ Контейнер за картите */
 .card-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch; /* Подравнява всички карти */
+    align-items: stretch;
     gap: 2em;
-    padding: 0 2em;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1em;
 }
 
-/* Карта */
+/* ✅ Карта */
 .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 20em;
-    min-height: 550px; /* Всички карти ще имат еднаква височина */
+    width: 100%;
+    max-width: 20em;
+    min-height: 500px;
     background-color: #F9C356;
     border-radius: 1em;
     overflow: hidden;
@@ -50,20 +56,20 @@
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Стилизиране на изображението */
+/* ✅ Изображение в картата */
 .card .media {
     width: 100%;
-    height: 300px; /* Унифицирана височина */
+    height: 280px; /* По-гъвкава височина */
     overflow: hidden;
 }
 
 .card .media img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Изображенията ще се изрязват еднакво */
+    object-fit: cover;
 }
 
-/* Информация в картите */
+/* ✅ Информация в картите */
 .card .card-info {
     display: flex;
     flex-direction: column;
@@ -91,10 +97,10 @@
     font-size: 0.9em;
     color: #444;
     margin-bottom: 1em;
-    flex-grow: 1; /* Разпределя текстовете равномерно */
+    flex-grow: 1;
 }
 
-/* Бутон */
+/* ✅ Бутон */
 .card .card-info a {
     display: block;
     text-decoration: none;
@@ -108,7 +114,8 @@
     letter-spacing: 0.5px;
     text-align: center;
     width: 80%;
-    margin: auto; /* Центриране на бутона */
+    max-width: 90%;
+    margin: auto;
 }
 
 .card .card-info a:hover {
@@ -116,4 +123,43 @@
     background-color: #F4B953;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
+}
+
+/* ✅ Адаптация за мобилни устройства */
+@media screen and (max-width: 768px) {
+    .card-list {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 22em;
+        min-height: auto;
+    }
+
+    .card .media {
+        height: 250px; /* Намалена височина на изображенията */
+    }
+
+    .card .card-info {
+        padding: 1em;
+    }
+
+    .card .card-info h3 {
+        font-size: 1.2em;
+    }
+
+    .card .card-info h5 {
+        font-size: 0.9em;
+    }
+
+    .card .card-info p {
+        font-size: 0.85em;
+    }
+
+    .card .card-info a {
+        width: 100%;
+    }
 }

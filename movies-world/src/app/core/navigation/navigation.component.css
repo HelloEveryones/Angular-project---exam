@@ -1,3 +1,4 @@
+/* ✅ Главна навигация */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -5,9 +6,13 @@
     padding: 1.5em;
     background-color: black;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-/* Лого */
+/* ✅ Лого */
 .logo a {
     text-decoration: none;
     color: white;
@@ -20,20 +25,16 @@
     color: #F4B953;
 }
 
-/* Навигационно меню */
+/* ✅ Меню */
 .nav-btns {
     display: flex;
     gap: 2em;
-    list-style: none; /* ✅ Премахва точките от списъка */
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Стил за линковете в навигацията */
-.nav-btns li {
-    display: inline-block;
-}
-
+/* ✅ Стил за линковете */
 .nav-btns li a {
     text-decoration: none;
     text-transform: uppercase;
@@ -47,18 +48,39 @@
     color: white;
 }
 
+/* ✅ Бургер меню (скрито по подразбиране) */
+.burger-menu {
+    display: none;
+    font-size: 2em;
+    color: #F4B953;
+    cursor: pointer;
+}
+
 /* ✅ Мобилна версия */
 @media screen and (max-width: 768px) {
     .nav {
         flex-direction: column;
         align-items: center;
-        text-align: center;
         padding: 1em;
     }
 
+    /* ✅ Показване на бургер менюто */
+    .burger-menu {
+        display: block;
+    }
+
+    /* ✅ Скриване на менюто по подразбиране */
     .nav-btns {
+        display: none;
         flex-direction: column;
         gap: 1em;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* ✅ Показване на менюто при активиране */
+    .nav-btns.active {
+        display: flex;
     }
 
     .nav-btns li a {

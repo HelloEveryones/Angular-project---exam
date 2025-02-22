@@ -1,4 +1,8 @@
-.footer{
+.footer {
+    position: fixed;  /* Фиксира футъра в долната част */
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,10 +10,33 @@
     background-color: black;
     padding: 1em;
     color: #F4B953;
+    text-align: center;
+    font-size: 1em;
+    z-index: 1000; /* Уверяваме се, че е най-отгоре */
 }
-.footer h4{
+
+.footer h4 {
     margin: 0;
+    font-size: 1.2em;
 }
-.footer p{
+
+.footer p {
     margin: 0;
+    font-size: 0.9em;
+}
+
+/* ✅ Адаптация за мобилни устройства */
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 0.8em;
+        font-size: 0.9em;
+    }
+
+    .footer h4 {
+        font-size: 1em;
+    }
+
+    .footer p {
+        font-size: 0.8em;
+    }
 }

@@ -1,3 +1,4 @@
+/* ✅ Основен контейнер */
 .movie-details {
     display: flex;
     flex-direction: column;
@@ -8,6 +9,7 @@
     padding: 4em 2em;
 }
 
+/* ✅ Детайли за филма */
 .details {
     display: flex;
     flex-direction: column;
@@ -20,13 +22,16 @@
     text-align: center;
 }
 
+/* ✅ Изображение на филма */
 .movie-image {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
 }
 
+/* ✅ Бутоните */
 .buttons {
     display: flex;
     gap: 1em;
@@ -52,7 +57,7 @@
     color: white;
 }
 
-/* Коментари */
+/* ✅ Контейнер за коментарите */
 .comments {
     width: 80%;
     background: rgba(0, 0, 0, 0.7);
@@ -62,6 +67,7 @@
     margin-top: 2em;
 }
 
+/* ✅ Контейнер за списъка с коментари */
 .comment-list {
     display: flex;
     flex-direction: column;
@@ -71,6 +77,7 @@
     margin: 0;
 }
 
+/* ✅ Всяка отделна коментарна карта */
 .comment {
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -84,6 +91,7 @@
     transform: scale(1.02);
 }
 
+/* ✅ Автор на коментара */
 .comment-author {
     display: flex;
     justify-content: space-between;
@@ -98,9 +106,56 @@
     align-items: center;
 }
 
+/* ✅ Снимка на потребителя */
 .comment-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+/* ✅ Мобилна адаптация */
+@media screen and (max-width: 768px) {
+    .details {
+        width: 90%;
+        max-width: 95%;
+        padding: 1em;
+    }
+
+    .movie-image {
+        width: 90%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .edit-btn, .delete-btn {
+        width: 90%;
+        max-width: 15em;
+        padding: 0.8em;
+    }
+
+    .comments {
+        width: 95%;
+        padding: 1.5em;
+    }
+
+    .comment-author {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5em;
+    }
+
+    .media-author-info {
+        flex-direction: column;
+    }
+
+    .comment-img {
+        width: 50px;
+        height: 50px;
+    }
 }

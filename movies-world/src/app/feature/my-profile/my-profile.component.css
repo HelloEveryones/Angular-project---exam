@@ -1,4 +1,4 @@
-/* Основна секция на профила */
+/* ✅ Основен контейнер */
 .my-profile {
     display: flex;
     flex-direction: column;
@@ -8,12 +8,12 @@
     width: 100%;
 }
 
-/* Секция с информация за профила */
+/* ✅ Секция с информация за профила */
 .profil-information {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5em;
+    gap: 1em;
     padding: 2em;
     color: #F4B953;
     background-color: rgba(0, 0, 0, 0.6);
@@ -23,24 +23,29 @@
     text-align: center;
 }
 
-/* Профилна снимка */
+/* ✅ Профилна снимка */
 .profile-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #F4B953;
+    display: block;
+    margin: auto;
 }
 
-/* Бутон за промяна на снимката */
+/* ✅ Бутон за промяна на снимката */
 .change-picture-btn {
-    cursor: pointer;
+    display: block;
+    width: auto;
+    text-align: center;
     background-color: black;
     color: #F4B953;
     border-radius: 5px;
     padding: 0.5em 1em;
     border: 1px solid #F4B953;
     transition: 0.3s;
+    margin-top: 0.5em;
 }
 
 .change-picture-btn:hover {
@@ -48,7 +53,7 @@
     border-color: white;
 }
 
-/* Форма за промяна на снимката */
+/* ✅ Форма за промяна на снимката */
 .card.card-body {
     display: flex;
     flex-direction: column;
@@ -57,10 +62,29 @@
     border: 1px solid #F4B953;
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.6);
-    margin-top: 1em;
+    margin-top: 0.5em;
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
 }
 
-/* 📌 Филмови карти - стилизирани за по-добър изглед */
+.card.card-body input {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 2px solid #F4B953;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* ✅ Подравняване на информацията */
+.info p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* ✅ Филмови карти - стилизирани за по-добър изглед */
 .card-list {
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +94,7 @@
     width: 100%;
 }
 
-/* 📌 Всяка карта е с фиксиран размер */
+/* ✅ Всяка карта е с фиксиран размер */
 .card {
     width: 250px;
     background-color: #F9C356;
@@ -84,7 +108,7 @@
     transform: scale(1.05);
 }
 
-/* 📌 Изображението на филма */
+/* ✅ Изображението на филма */
 .card .media {
     width: 100%;
     height: 300px;
@@ -95,15 +119,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-/* 📌 Информация за филма */
+/* ✅ Информация за филма */
 .card-info {
     padding: 1em;
     text-align: center;
 }
 
-/* 📌 Заглавие на филма */
+/* ✅ Заглавие на филма */
 .card-info h3 {
     font-size: 1.2em;
     font-weight: bold;
@@ -111,7 +136,7 @@
     color: black;
 }
 
-/* 📌 Допълнителна информация */
+/* ✅ Допълнителна информация */
 .card-info h5 {
     font-size: 1em;
     color: #333;
@@ -123,7 +148,7 @@
     color: #222;
 }
 
-/* 📌 Бутон "Details" */
+/* ✅ Бутон "Details" */
 .card .card-info a {
     display: block;
     text-align: center;
@@ -140,4 +165,43 @@
 .card .card-info a:hover {
     color: black;
     background-color: antiquewhite;
+}
+
+/* ✅ Мобилна адаптация */
+@media screen and (max-width: 768px) {
+    .profil-information {
+        width: 90%;
+        max-width: 350px;
+        padding: 1.5em;
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .change-picture-btn {
+        font-size: 1em;
+    }
+
+    .card.card-body {
+        width: 95%;
+        max-width: 280px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .card-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-thumbnail {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
 }

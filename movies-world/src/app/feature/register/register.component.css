@@ -1,72 +1,173 @@
-.register{
+/* ✅ Основен контейнер */
+.register {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0,0.4);
-    height: 100%;
-    
-}
-.register form{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 50em;
-    background-color: rgba(0, 0, 0,0.6);
-    color:#F4B953;
-    min-height: 20em;
-    border-radius: 1em;
-    padding: 1em 0;
-}
-.register form .header{
-    position: relative;
-}
-.register form app-error-message{
-    position: absolute;
-}
-.register form h3{
-    font-size: 3em;
-    text-transform: uppercase;
-    margin-bottom: 0;
-}
-.register form .fields{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-.register form .fields .field{
-    display: flex;
-    gap: 2em;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-.register form .fields .field label{
-    font-size: 1.5em;
-}
-.register form .fields .field input{
-    min-width: 15em;
-    min-height: 2em;
-    border: 2px solid #F4B953;
-    border-radius: 0.5em;
+    background-color: rgba(0, 0, 0, 0.4);
+    min-height: 100vh;
+    padding: 2em;
+    width: 100%;
 }
 
-.register form .fields .button input{
+/* ✅ Форма за регистрация */
+.register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 35em;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #F4B953;
+    border-radius: 1em;
+    padding: 2em;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ✅ Заглавие */
+.register form .header {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.register form h3 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+/* ✅ Полета */
+.register form .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+}
+
+/* ✅ Всяко поле */
+.register form .fields .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+}
+
+/* ✅ Етикети за полетата */
+.register form .fields .field label {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* ✅ Инпут и текстови полета */
+.register form .fields .field input {
+    width: 100%;
+    padding: 0.7em;
+    font-size: 1.1em;
+    border: 2px solid #F4B953;
+    border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #F4B953;
+}
+
+/* ✅ Контейнер за бутона */
+.register form .fields .button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ✅ Бутон */
+.register form .fields .button input {
     background-color: black;
     color: #F4B953;
-    border: 1px solid #F4B953;
-    padding: 0.5em 1em;
+    border: 2px solid #F4B953;
+    padding: 0.7em 1.5em;
     font-size: 1.5em;
-}
-.register form .fields .button input:hover{
-    color: white;
-    border-color: white;
+    font-weight: bold;
+    border-radius: 0.5em;
+    transition: all 0.3s ease;
     cursor: pointer;
+    width: 100%;
+    max-width: 15em;
 }
-.error{
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 2.2em;
-    left: 0em;
+
+.register form .fields .button input:hover {
+    background-color: #F4B953;
+    color: black;
+}
+
+/* ✅ Грешки при въвеждане */
+.error {
     color: red;
+    font-size: 1em;
+    margin-top: 0.3em;
+    position: absolute;
+    top: 2.5em;
+    left: auto;
+    text-align: center;
+}
+
+/* ✅ Дълги грешки */
+.error-long {
+    width: 100%;
+    max-width: 25em;
+    position: absolute;
+    top: 4em;
+    left: auto;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+/* ✅ Мобилна адаптация */
+@media screen and (max-width: 768px) {
+    .register {
+        padding: 1.5em;
+    }
+
+    .register form {
+        width: 95%;
+        padding: 1.5em;
+    }
+
+    .register form h3 {
+        font-size: 2em;
+    }
+
+    .register form .fields {
+        gap: 1em;
+    }
+
+    .register form .fields .field {
+        align-items: center;
+        text-align: center;
+    }
+
+    .register form .fields .field label {
+        font-size: 1em;
+    }
+
+    .register form .fields .field input {
+        font-size: 1em;
+        max-width: 100%;
+    }
+
+    .register form .fields .button input {
+        width: 100%;
+        font-size: 1.2em;
+    }
+
+    .error {
+        position: relative;
+        top: auto;
+        left: auto;
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+    .error-long {
+        position: relative;
+        top: auto;
+        left: auto;
+        text-align: center;
+        font-size: 0.85em;
+    }
 }

@@ -1,3 +1,4 @@
+/* ✅ Основен контейнер */
 .movie-edit {
     display: flex;
     align-items: center;
@@ -7,11 +8,13 @@
     padding: 2em;
 }
 
+/* ✅ Форма за редактиране */
 .movie-edit form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50em;
+    width: 90%;
+    max-width: 35em;
     background-color: rgba(0, 0, 0, 0.7);
     color: #F4B953;
     border-radius: 1em;
@@ -19,6 +22,7 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
+/* ✅ Заглавие */
 .movie-edit form .header {
     text-align: center;
     margin-bottom: 1em;
@@ -30,6 +34,7 @@
     margin-bottom: 0.5em;
 }
 
+/* ✅ Полета */
 .movie-edit form .fields {
     display: flex;
     flex-direction: column;
@@ -37,6 +42,7 @@
     width: 100%;
 }
 
+/* ✅ Всяко поле */
 .movie-edit form .fields .field {
     display: flex;
     flex-direction: column;
@@ -44,11 +50,13 @@
     width: 100%;
 }
 
+/* ✅ Етикети за полетата */
 .movie-edit form .fields .field label {
     font-size: 1.3em;
     font-weight: bold;
 }
 
+/* ✅ Инпут и текстови полета */
 .movie-edit form .fields .field input,
 .movie-edit form .fields .field textarea {
     width: 100%;
@@ -60,12 +68,14 @@
     color: #F4B953;
 }
 
+/* ✅ Контейнер за бутона */
 .movie-edit form .fields .button {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
+/* ✅ Бутон */
 .movie-edit form .fields .button input {
     background-color: black;
     color: #F4B953;
@@ -76,6 +86,8 @@
     border-radius: 0.5em;
     transition: all 0.3s ease;
     cursor: pointer;
+    width: 100%;
+    max-width: 15em;
 }
 
 .movie-edit form .fields .button input:hover {
@@ -83,8 +95,80 @@
     color: black;
 }
 
+/* ✅ Грешки при въвеждане */
 .error {
     color: red;
     font-size: 1em;
     margin-top: 0.3em;
+    position: absolute;
+    top: 2.5em;
+    left: auto;
+    text-align: center;
+}
+
+/* ✅ Дълги грешки */
+.error-long {
+    width: 100%;
+    max-width: 25em;
+    position: absolute;
+    top: 4em;
+    left: auto;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+/* ✅ Мобилна адаптация */
+@media screen and (max-width: 768px) {
+    .movie-edit {
+        padding: 1.5em;
+    }
+
+    .movie-edit form {
+        width: 95%;
+        padding: 1.5em;
+    }
+
+    .movie-edit form h3 {
+        font-size: 2em;
+    }
+
+    .movie-edit form .fields {
+        gap: 1em;
+    }
+
+    .movie-edit form .fields .field {
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-edit form .fields .field label {
+        font-size: 1em;
+    }
+
+    .movie-edit form .fields .field input,
+    .movie-edit form .fields .field textarea {
+        font-size: 1em;
+        max-width: 100%;
+    }
+
+    .movie-edit form .fields .button input {
+        width: 100%;
+        font-size: 1.2em;
+    }
+
+    .error {
+        position: relative;
+        top: auto;
+        left: auto;
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+    .error-long {
+        position: relative;
+        top: auto;
+        left: auto;
+        text-align: center;
+        font-size: 0.85em;
+    }
 }

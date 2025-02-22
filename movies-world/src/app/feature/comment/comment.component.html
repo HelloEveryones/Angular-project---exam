@@ -5,9 +5,7 @@
         <input type="submit" value="Add comment">
     </div>
 
-    <div class="error" *ngIf="comment.touched">
-        <div *ngIf="comment.errors?.['required']">
-            Please enter some text!
-        </div>
+    <div class="error" *ngIf="comment.touched && comment.invalid">
+        <div *ngIf="comment.errors?.['required']">Please enter some text!</div>
     </div>
 </form>
