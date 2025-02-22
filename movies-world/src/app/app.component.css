@@ -1,32 +1,151 @@
 .site {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
     background-image: url("../assets/cinema-strip-2713352_1280.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: auto;
+    overflow-x: hidden;
 }
 
+/* ✅ Фиксирана навигация */
+.site header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #F4B953;
+    text-align: center;
+    padding: 1em;
+    z-index: 1000;
+}
+
+/* ✅ Основната част на сайта (за да не се скрива под навигацията) */
 .site .main {
     width: 100%;
-    min-height: 100vh;
+    flex-grow: 1;
+    padding-top: 4em; /* За да не се припокрива от header-а */
+    padding-bottom: 5em; /* За да не се скрива от footer-а */
 }
 
-.site header,
+/* ✅ Фиксиран футър */
 .site footer {
-    flex-basis: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #F4B953;
+    padding: 1em 0;
+    text-align: center;
+    z-index: 1000;
 }
 
-
-
+/* ✅ Адаптивност за мобилни устройства (до 768px) */
 @media screen and (max-width: 768px) {
-    
+    .site {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .site .main {
+        padding: 1em;
+        width: 100%;
+    }
+
+    /* ✅ Оразмеряване на изображенията в детайлите */
+    .movie-image {
+        width: 90%;
+        max-width: 250px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    /* ✅ Бутоните за Edit/Delete */
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0.5em;
+    }
+
+    .edit-btn, .delete-btn {
+        width: 90%;
+        padding: 0.8em;
+        font-size: 1em;
+    }
+
+    /* ✅ Форма за коментари */
+    form {
+        width: 100%;
+        padding: 1em;
+    }
+
+    form textarea {
+        width: 90%;
+        height: 8em;
+        font-size: 1.2em;
+    }
+
+    form input[type="submit"] {
+        width: 90%;
+        font-size: 1em;
+        padding: 0.5em;
+    }
 }
 
+/* ✅ Стилове за таблети (769px - 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    
+    .site {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .site .main {
+        width: 80%;
+        padding: 2em;
+    }
+
+    .movie-image {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    .buttons {
+        gap: 1em;
+    }
+
+    .edit-btn, .delete-btn {
+        padding: 0.8em 1.5em;
+    }
 }
 
+/* ✅ Стилове за десктопи (над 1025px) */
 @media screen and (min-width: 1025px) {
-    
+    .site {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .site .main {
+        width: 70%;
+        margin: auto;
+    }
+
+    .movie-image {
+        width: 50%;
+        max-width: 400px;
+    }
+
+    .buttons {
+        gap: 1.5em;
+    }
+
+    .edit-btn, .delete-btn {
+        padding: 1em 2em;
+        font-size: 1.2em;
+    }
 }

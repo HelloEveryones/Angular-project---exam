@@ -1,4 +1,3 @@
-
 .home-page {
     display: flex;
     flex-direction: column;
@@ -7,7 +6,6 @@
     min-height: 100vh;
     padding: 5em 0; 
 }
-
 
 .welcome {
     display: flex;
@@ -40,6 +38,8 @@
     color: #F4B953;
     font-size: 1.2em;
 }
+
+/* Карти */
 .card-list {
     display: flex;
     flex-wrap: wrap;
@@ -49,43 +49,54 @@
     gap: 2em;
 }
 
-
 .card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Разпределя съдържанието равномерно */
     align-items: center;
-    width: 25em;
+    width: 22em;
+    min-height: 550px; /* Фиксирана височина за всички карти */
     background-color: #F9C356;
     border-radius: 1em; 
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
+/* Изображение */
+.card .media {
+    width: 100%;
+    height: 300px; /* Всички изображения ще бъдат еднакви */
+    overflow: hidden;
+}
 
 .card .media img {
     width: 100%;
-    height: auto; 
-    object-fit: cover; 
+    height: 100%;
+    object-fit: cover;
 }
 
-
+/* Информация вътре в картите */
 .card .card-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
     width: 100%;
-    padding: 1em; 
-    text-align: center; 
+    padding: 1em;
+    text-align: center;
 }
 
-
+/* Бутон */
 .card .card-info a {
-    display: inline-block; 
+    display: block;
     text-decoration: none;
     padding: 0.5em 1em;
     background-color: black;
     color: white;
     text-transform: uppercase;
     border-radius: 0.5em; 
+    margin-top: auto;
 }
-
 
 .card .card-info a:hover {
     color: black;

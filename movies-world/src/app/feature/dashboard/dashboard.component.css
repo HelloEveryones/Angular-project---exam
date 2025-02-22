@@ -1,66 +1,119 @@
-
 .recent-posts {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3em;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 3em 0; 
+    gap: 2.5em;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3em 0;
 }
 
 .recent-posts .info {
     width: 100%;
-    text-align: center; 
+    text-align: center;
 }
 
 .recent-posts .info h3 {
     margin: 0;
     text-transform: uppercase;
-    color: #F4B953; 
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #F4B953;
+    letter-spacing: 1px;
 }
 
-
+/* Контейнер за картите */
 .card-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch; /* Подравнява всички карти */
     gap: 2em;
-    padding: 0 2em; 
+    padding: 0 2em;
 }
 
+/* Карта */
 .card {
-    width: 20em; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20em;
+    min-height: 550px; /* Всички карти ще имат еднаква височина */
     background-color: #F9C356;
-    border-radius: 1em; 
-    overflow: hidden; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 1em;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Стилизиране на изображението */
+.card .media {
+    width: 100%;
+    height: 300px; /* Унифицирана височина */
+    overflow: hidden;
 }
 
 .card .media img {
     width: 100%;
-    height: auto; 
-    object-fit: cover; 
+    height: 100%;
+    object-fit: cover; /* Изображенията ще се изрязват еднакво */
 }
 
-
+/* Информация в картите */
 .card .card-info {
-    padding: 1em; 
-    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 1.2em;
+    text-align: center;
 }
 
+.card .card-info h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.5em;
+}
 
+.card .card-info h5 {
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.card .card-info p {
+    font-size: 0.9em;
+    color: #444;
+    margin-bottom: 1em;
+    flex-grow: 1; /* Разпределя текстовете равномерно */
+}
+
+/* Бутон */
 .card .card-info a {
-    display: inline-block;
+    display: block;
     text-decoration: none;
-    padding: 0.5em 1em;
+    padding: 0.6em 1.2em;
     background-color: black;
     color: white;
     text-transform: uppercase;
-    border-radius: 0.5em; 
+    border-radius: 0.5em;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 80%;
+    margin: auto; /* Центриране на бутона */
 }
-
 
 .card .card-info a:hover {
     color: black;
-    background-color: antiquewhite;
+    background-color: #F4B953;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }

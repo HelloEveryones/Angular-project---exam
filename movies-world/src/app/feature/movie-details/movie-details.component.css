@@ -2,86 +2,64 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
-    background-color: rgba(0, 0, 0, 0.4);
+    gap: 1.5em;
+    background: rgba(0, 0, 0, 0.6);
     min-height: 100vh;
-    padding: 5em 0;
-}
-
-.movie-details h3 {
-    color: #F4B953;
-    font-size: 2.5em;
-    margin-top: 0;
-    margin-bottom: 1em;
+    padding: 4em 2em;
 }
 
 .details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
-    max-width: 90%;
-    padding: 1em;
-    background-color: rgba(237, 226, 226, 0.6);
+    max-width: 60%;
+    padding: 1.5em;
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 1em;
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
-.details .info {
-    width: 100%;
+.movie-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 1em;
-    padding: 1em;
+    margin-top: 1em;
 }
 
-.details .info .buttons button,
-.details .info .buttons a {
-    display: inline-block;
-    padding: 0.5em 2em;
-    background-color: black;
-    color: #F4B953;
-    font-size: 1.5em;
-    border: 1px solid #F4B953;
-    text-decoration: none;
+.edit-btn, .delete-btn {
+    padding: 0.6em 1.2em;
+    font-size: 1em;
     text-transform: uppercase;
-    border-radius: 0.5em;
-    transition: all 0.3s ease;
-    margin-right: 0.5em; 
-}
-
-.details .info .buttons button:last-child,
-.details .info .buttons a:last-child {
-    margin-right: 0; 
-}
-
-.details .info .buttons button:hover,
-.details .info .buttons a:hover {
-    color: black;
-    background-color: #F4B953;
-    border-color: #F4B953; 
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
 }
 
-.comments {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 1em;
-    color: #F4B953;
-    max-width: 90%;
-    padding: 2em;
-    margin-top: 2em;
-    overflow: auto;
+.edit-btn {
+    background-color: green;
+    color: white;
 }
 
-.comments h4 {
-    text-align: center;
-    padding: 1em;
-    margin: 0;
-    font-size: 2em;
-    border-top: 1px solid #F4B953;
-    border-bottom: 1px solid #F4B953;
-    margin-top: 1em;
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+/* Коментари */
+.comments {
+    width: 80%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1em;
+    color: #F4B953;
+    padding: 2em;
+    margin-top: 2em;
 }
 
 .comment-list {
@@ -94,55 +72,35 @@
 }
 
 .comment {
-    background-color: rgba(197, 184, 184, 0.6);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     border-radius: 0.5em;
-    box-shadow: 0 0 1em 0 rgba(244, 185, 83, 0.6);
-    padding: 1em;
+    box-shadow: 0 0 10px rgba(244, 185, 83, 0.6);
+    padding: 1.2em;
+    transition: transform 0.3s ease-in-out;
 }
 
-.comment .comment-author {
+.comment:hover {
+    transform: scale(1.02);
+}
+
+.comment-author {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 4px solid #F4B953;
+    border-bottom: 2px solid #F4B953;
     padding-bottom: 1em;
 }
 
-.comment .comment-author .media-author-info {
+.media-author-info {
     display: flex;
     gap: 1em;
     align-items: center;
 }
 
-.comment .comment-author .media-author-info .media {
-    display: flex;
-    justify-content: center;
+.comment-img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    width: 3em;
-    overflow: hidden;
-}
-
-.comment .comment-author .media-author-info .media img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.comment .comment-author .media-author-info h5 {
-    margin: 0;
-    font-size: 2em;
-    align-self: flex-end;
-}
-
-.comment > p {
-    font-size: 1.5em;
-    margin: 0;
-    padding: 1em 0;
-}
-
-.comment .comment-author p {
-    margin: 0;
-    font-size: 1em;
-    align-self: flex-end;
+    object-fit: cover;
 }

@@ -11,7 +11,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  comments: any; 
+  comments: any[] = []; 
   movie: Movie | undefined; 
   movieId = this.route.snapshot.params["id"]; 
   isLoggedIn: boolean = false; 
@@ -26,34 +26,30 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   
     this.movieService.getMovie(this.movieId).subscribe(movie => {
       this.movie = movie; 
-      this.comments = movie.comments; 
+      this.comments = movie.comments || []; 
       
-      this.userService.user$.subscribe((user)=>{
-        if(user){
+      this.userService.user$.subscribe((user) => {
+        if (user) {
           this.isLoggedIn = true; 
-          if(this.movie?.ownerId === user?._id){
+          if (this.movie?.ownerId === user?._id) {
             this.isOwner = true; 
           }
         }
-      })
-    })
-
+      });
+    });
   }
 
-  
-  getNewComment(comments: any){
-      this.comments = comments;
+  getNewComment(newComment: any) {
+    this.comments = [...this.comments, newComment]; // Добавя нов коментар без refresh
   }
+
   deleteHandler(): void {
     this.modalService.open();
   }
 
-  
-  editHandler():void {
-    
+  editHandler(): void {
     this.router.navigate([`/movie-edit/${this.movieId}`], { state: { isOwner: this.isOwner } });
   }
 }

@@ -1,45 +1,49 @@
-<app-modal title="{{movie?.title}}" *ngIf="isLoggedIn && isOwner"/>
+<app-modal title="{{ movie?.title }}" *ngIf="isLoggedIn && isOwner"></app-modal>
+
 <div class="movie-details">
-
-
     <h3>Details</h3>
     <div class="details">
         <div class="media">
-            <img src="{{movie?.imageUrl}}" alt="{{movie?.title}}">
-
+            <img [src]="movie?.imageUrl" [alt]="movie?.title" class="movie-image">
         </div>
         <div class="info">
-            <h4>{{movie?.title}}</h4>
-            <h5>{{movie?.director}} <span>{{movie?.year}}</span></h5>
-            <p>{{movie?.genre}}</p>
-            <p>{{movie?.plot}}</p>
-            <div class="buttons" *ngIf="isLoggedIn && isOwner"></div>
-            <button (click)="editHandler()">Edit</button>
-                <button (click)="deleteHandler()">Delete</button>
+            <h4>{{ movie?.title }}</h4>
+            <h5>{{ movie?.director }} <span>{{ movie?.year }}</span></h5>
+            <p>{{ movie?.genre }}</p>
+            <p>{{ movie?.plot }}</p>
+
+            <!-- Бутоните са вътре в div.buttons и се показват само ако потребителят е owner -->
+            <div class="buttons" *ngIf="isLoggedIn && isOwner">
+                <button class="edit-btn" (click)="editHandler()">Edit</button>
+                <button class="delete-btn" (click)="deleteHandler()">Delete</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="comments">
-        <app-comment *ngIf="isLoggedIn" (commentIsCreated)="getNewComment($event)"/>
+<div class="comments">
+    <h4>Comments</h4>
 
+    <!-- Форма за добавяне на коментар -->
+    <app-comment *ngIf="isLoggedIn" (commentIsCreated)="getNewComment($event)"></app-comment>
 
-        <h4>Comments</h4>
-            <h4 *ngIf="!movie?.comments">There are no added comments yet.</h4>
-        <div class="comment-list" *ngIf="movie?.comments">
-            <ul>
-                <li class="comment" *ngFor="let comment of comments">
-                    <div class="comment-author">
-                        <div class="media-author-info">
-                            <div class="media">
-                                <img src="{{comment.userId.imageUrl}}" alt="Profile picture">
-                            </div>
-                        
-                            <h5>{{comment.userId.username}}</h5>
+    <!-- Проверка дали има коментари -->
+    <h4 *ngIf="!comments?.length">There are no added comments yet.</h4>
+
+    <div class="comment-list" *ngIf="comments?.length">
+        <ul>
+            <li class="comment" *ngFor="let comment of comments">
+                <div class="comment-author">
+                    <div class="media-author-info">
+                        <div class="media">
+                            <img [src]="comment.userId?.imageUrl || 'assets/default-profile.png'" alt="Profile picture" class="comment-img">
                         </div>
-                        <p>Posted on: {{comment.created_at | date:'medium'}}</p>
+                        <h5>{{ comment.userId?.username }}</h5>
                     </div>
-                    <p>{{comment.text}}</p>
-                </li>
-            </ul>
-        </div>
+                    <p class="comment-date">Posted on: {{ comment.created_at | date:'medium' }}</p>
+                </div>
+                <p class="comment-text">{{ comment.text }}</p>
+            </li>
+        </ul>
+    </div>
+</div>

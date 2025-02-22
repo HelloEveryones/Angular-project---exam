@@ -1,31 +1,68 @@
-.nav{
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5em;
     background-color: black;
-}
-.nav-btns{
-    display: flex;
-    gap: 2em;
+    width: 100%;
 }
 
-.nav-btns li a{
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1.3em;
-    color: #F4B953;
-}
-.nav-btns li a:hover{
-    color:white;
-}
-.logo a{
+/* Лого */
+.logo a {
     text-decoration: none;
     color: white;
     font-size: 2em;
     font-family: fantasy;
     letter-spacing: 0.3em;
 }
-.logo a span{
+
+.logo a span {
     color: #F4B953;
+}
+
+/* Навигационно меню */
+.nav-btns {
+    display: flex;
+    gap: 2em;
+    list-style: none; /* ✅ Премахва точките от списъка */
+    margin: 0;
+    padding: 0;
+}
+
+/* Стил за линковете в навигацията */
+.nav-btns li {
+    display: inline-block;
+}
+
+.nav-btns li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    color: #F4B953;
+    padding: 0.5em 1em;
+    transition: color 0.3s ease;
+}
+
+.nav-btns li a:hover {
+    color: white;
+}
+
+/* ✅ Мобилна версия */
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1em;
+    }
+
+    .nav-btns {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .nav-btns li a {
+        font-size: 1.2em;
+        padding: 0.5em;
+    }
 }
